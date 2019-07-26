@@ -1,13 +1,11 @@
 package com.haiph.assignmentandroidnw.fragment;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,8 +23,6 @@ import com.haiph.assignmentandroidnw.model.Example;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,7 +33,7 @@ public class CatergoryFragment extends Fragment {
     int currentPage, lastItemVisible, totalItemCount;
     private RecyclerView rcView;
     private CategoryAdapter categoryAdapter;
-
+    private String url= null;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -55,19 +51,18 @@ public class CatergoryFragment extends Fragment {
                 final Example example = examplesList.get(position);
                 PostInCateFragment fragment = new PostInCateFragment();
                 Bundle b = new Bundle();
-                b.putString("id", example.getId().toString());
-                b.putString("title", example.getTitle().getRendered());
-                b.putString("sticky", example.getSticky().toString());
-                b.putString("status", example.getStatus());
-                b.putString("date", example.getDate());
-                b.putString("date_gmt", example.getDateGmt());
-                b.putString("featured_media", example.getFeaturedMedia().toString());
-                b.putString("type", example.getType());
-                b.putString("author", example.getAuthor().toString());
-                b.putString("image",example.getContent().getRendered());
+//                b.putString("id", example.getId().toString());
+//                b.putString("title", example.getTitle().getRendered());
+//                b.putString("sticky", example.getSticky().toString());
+//                b.putString("status", example.getStatus());
+//                b.putString("date", example.getDate());
+//                b.putString("date_gmt", example.getDateGmt());
+//                b.putString("featured_media", example.getFeaturedMedia().toString());
+//                b.putString("type", example.getType());
+//                b.putString("author", example.getAuthor().toString());
 
+             b.putString("image",example.getEmbedded().getWpFeaturedmedia().get(0).getSourceUrl());
                 b.putInt("POSITION", position);
-
 
 
                 fragment.setArguments(b);
@@ -112,7 +107,7 @@ public class CatergoryFragment extends Fragment {
             @Override
             public void onResponse(Call<List<Example>> call, Response<List<Example>> response) {
                 if (response.code() == 200) {
-                    Log.e("data", response.body() + "");
+                    Log.e("data", response.body().get(0).getEmbedded().getWpFeaturedmedia().get(0).getSourceUrl());
                     categoryAdapter.UpdateData(response.body());
                 }
             }

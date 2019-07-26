@@ -41,8 +41,9 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         if (toolbar != null){
             toolbar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient_toolbar));
+            toolbar.setTitle("Wallpaper");
         }
-        toolbar.setTitle("Wallpaper");
+
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -99,6 +100,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_category) {
             getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new CatergoryFragment()).commit();
+
         } else if (id == R.id.nav_gifs) {
 
         } else if (id == R.id.nav_favorite) {

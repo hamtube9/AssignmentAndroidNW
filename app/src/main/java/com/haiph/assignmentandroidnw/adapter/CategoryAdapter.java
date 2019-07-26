@@ -1,13 +1,9 @@
 package com.haiph.assignmentandroidnw.adapter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,10 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.haiph.assignmentandroidnw.R;
 import com.haiph.assignmentandroidnw.model.Example;
 
-import org.json.JSONArray;
-import org.w3c.dom.Text;
-
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,7 +46,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         final Example example=examplesList.get(position);
         holder.tvTitle.setText(example.getTitle().getRendered()+"("+example.getFeaturedMedia()+")");
-        holder.imgCategory.setText(example.getLinks().getCollection()+"");
+
         holder.cardViewCate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,7 +62,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-         TextView tvTitle, imgCategory;
+         TextView tvTitle;
         private CardView cardViewCate;
 
 
@@ -79,7 +71,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
             tvTitle = itemView.findViewById(R.id.tvTitleCategory);
             cardViewCate = itemView.findViewById(R.id.cardViewCate);
-            imgCategory = itemView.findViewById(R.id.imgCategory);
+
         }
     }
 

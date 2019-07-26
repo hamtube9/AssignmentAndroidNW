@@ -1,12 +1,6 @@
 package com.haiph.assignmentandroidnw;
 
-import com.haiph.assignmentandroidnw.model.Example;
-
-import java.util.List;
-
-import retrofit2.Call;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.GET;
 
 public class Retrofit {
 

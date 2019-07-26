@@ -7,6 +7,7 @@
     android:layout_marginTop="10dp"
     android:layout_marginRight="20dp"
     android:layout_marginBottom="10dp"
+
     android:padding="2dp">>
 
     <LinearLayout
@@ -15,15 +16,11 @@
         android:layout_height="wrap_content">
         <RelativeLayout
             android:layout_width="match_parent"
-
+            android:id="@+id/ralativeLayout"
             android:layout_height="80dp"
             android:background="@drawable/border"
             android:orientation="horizontal">
-            <TextView
-                android:id="@+id/imgCategory"
-                android:background="#468273"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+
 
             <TextView
                 android:id="@+id/tvTitleCategory"

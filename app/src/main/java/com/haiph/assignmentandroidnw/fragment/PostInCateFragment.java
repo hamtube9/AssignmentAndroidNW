@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,13 +43,13 @@ public class PostInCateFragment extends Fragment {
         imgPostInCase = view.findViewById(R.id.imgPostInCategory);
 
 
-        tvAuthor = view.findViewById(R.id.tvAuthor);
-        tvdate = view.findViewById(R.id.tvdate);
-        tvdategmt = view.findViewById(R.id.tvdategmt);
-        tvsticky = view.findViewById(R.id.tvsticky);
-        tvmedia = view.findViewById(R.id.tvmedia);
-        tvstt = view.findViewById(R.id.tvstt);
-        tvType = view.findViewById(R.id.tvType);
+//        tvAuthor = view.findViewById(R.id.tvAuthor);
+//        tvdate = view.findViewById(R.id.tvdate);
+//        tvdategmt = view.findViewById(R.id.tvdategmt);
+//        tvsticky = view.findViewById(R.id.tvsticky);
+//        tvmedia = view.findViewById(R.id.tvmedia);
+//        tvstt = view.findViewById(R.id.tvstt);
+//        tvType = view.findViewById(R.id.tvType);
 
         tvTitle = view.findViewById(R.id.tvTitle);
 
@@ -62,15 +63,7 @@ public class PostInCateFragment extends Fragment {
 
             url = bundle.getString("image");
 
-            Pattern p = Pattern.compile("<img[^>]+src\\s*=\\s*['\"]([^'\"]+)['\"][^>]");
-            Matcher m = p.matcher(url);
-
-            List<String> urls = new ArrayList<>();
-            while (m.find()) {
-                String post_url = m.group();
-                urls.add(post_url);
-            }
-
+            Log.e("url",url+"");
             Glide
                     .with(getActivity())
                     .load(url)
@@ -79,14 +72,14 @@ public class PostInCateFragment extends Fragment {
                     .into(imgPostInCase);
 
 
-            position = bundle.getInt("POSITION");
-            tvAuthor.setText(bundle.getString("author"));
-            tvdate.setText(bundle.getString("date"));
-            tvdategmt.setText(bundle.getString("date_gmt"));
-            tvmedia.setText(bundle.getString("featured_media"));
-            tvsticky.setText(bundle.getString("sticky"));
-            tvstt.setText(bundle.getString("status"));
-            tvType.setText(bundle.getString("type"));
+//            position = bundle.getInt("POSITION");
+//            tvAuthor.setText(bundle.getString("author"));
+//            tvdate.setText(bundle.getString("date"));
+//            tvdategmt.setText(bundle.getString("date_gmt"));
+//            tvmedia.setText(bundle.getString("featured_media"));
+//            tvsticky.setText(bundle.getString("sticky"));
+//            tvstt.setText(bundle.getString("status"));
+//            tvType.setText(bundle.getString("type"));
             tvTitle.setText(bundle.getString("title"));
         }
 
